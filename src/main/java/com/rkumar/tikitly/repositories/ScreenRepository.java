@@ -1,6 +1,5 @@
-package com.rkumar.tikitly.repository;
-;
-import com.rkumar.tikitly.model.Screen;
+package com.rkumar.tikitly.repositories;
+import com.rkumar.tikitly.models.Screen;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

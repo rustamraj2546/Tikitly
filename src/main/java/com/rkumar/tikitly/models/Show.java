@@ -1,4 +1,4 @@
-package com.rkumar.tikitly.model;
+package com.rkumar.tikitly.models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

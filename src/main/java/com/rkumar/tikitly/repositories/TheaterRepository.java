@@ -1,7 +1,6 @@
-package com.rkumar.tikitly.repository;
+package com.rkumar.tikitly.repositories;
 
-import com.rkumar.tikitly.model.Booking;
-import com.rkumar.tikitly.model.Theater;
+import com.rkumar.tikitly.models.Theater;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
@@ -11,6 +10,4 @@ public interface TheaterRepository extends JpaRepository<Theater, Long> {
     List<Theater> findByCity(String city);
 
     Optional<Theater> findByName(String name);
-
-    List<Theater> findByShowId(Long showId);
 }

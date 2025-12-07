@@ -1,4 +1,4 @@
-package com.rkumar.tikitly.model;
+package com.rkumar.tikitly.models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -9,12 +9,12 @@ import lombok.Setter;
 import java.util.List;
 
 @Entity
-@Table(name = "user")
+@Table(name = "screens")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class User {
+public class Screen {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,16 +22,17 @@ public class User {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false, unique = true)
-    private String email;
-
     @Column(nullable = false)
-    private String password;
+    private Integer totalSeats;
 
-    @Column(nullable = false)
-    private String phoneNumber;
+    @ManyToOne
+    @JoinColumn(name = "theater_id", nullable = false)
+    private Theater theater;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Booking> bookings;
+    @OneToMany(mappedBy = "screen", cascade = CascadeType.ALL)
+    private List<Show> shows;
+
+    @OneToMany(mappedBy = "screen", cascade = CascadeType.ALL)
+    private List<Show> showSeats;
 
 }

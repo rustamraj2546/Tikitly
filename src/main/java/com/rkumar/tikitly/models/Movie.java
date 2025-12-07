@@ -1,4 +1,4 @@
-package com.rkumar.tikitly.model;
+package com.rkumar.tikitly.models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -27,8 +28,8 @@ public class Movie {
 
     private String language;
     private String genre;
-    private String durationMins;
-    private String releaseDate;
+    private Integer durationMins;
+    private LocalDate releaseDate;
     private String posterUrl;
 
     @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)

@@ -1,4 +1,4 @@
-package com.rkumar.tikitly.model;
+package com.rkumar.tikitly.models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -34,8 +34,12 @@ public class Booking {
     private Double totalAmount;
 
     @ManyToOne
-    @Column(name = "show_id", nullable = false)
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "show_id", nullable = false)
+    private Show show;
 
     @OneToMany(mappedBy = "booking", cascade = CascadeType.ALL)
     private List<ShowSeat> showSeats;
@@ -43,7 +47,5 @@ public class Booking {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "payment_id")
     private Payment payment;
-
-
 
 }
